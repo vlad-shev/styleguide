@@ -25,10 +25,10 @@ disable="warning-msg"
 
 ## Python Style Rules
 
-### 1 Line length
+### 1) Line length
 Maximum line length is *80 characters*.
 
-### 2 Parentheses
+### 2) Parentheses
 
 Use parentheses sparingly.
 
@@ -95,7 +95,7 @@ No:    # Stuff on first line forbidden
            ...
        }
 ```
-### 4 Blank Lines
+### 4) Blank Lines
 
 Two blank lines between top-level definitions, one blank line between method
 definitions.
