@@ -36,7 +36,7 @@ It is fine, though not required, to use parentheses around tuples. Do not use
 them in return statements or conditional statements unless using parentheses for
 implied line continuation or to indicate a tuple.
 
-### 3 Indentation
+### 3) Indentation
 
 Indent your code blocks with *4 spaces*.
 
