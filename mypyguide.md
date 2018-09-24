@@ -73,7 +73,7 @@ Yes:   # Aligned with opening delimiter
            var_one, var_two, var_three
        )
        meal = (
-           spam,beans
+           spam, beans
        )
 
        # 4-space hanging indent in a dictionary
