@@ -42,7 +42,7 @@ Indent your code blocks with *4 spaces*.
 
 Never use tabs or mix tabs and spaces. In cases of implied line continuation,
 you should align wrapped elements either vertically, as per the examples in the
-[line length](#s3.2-line-length) section; or using a hanging indent of 4 spaces,
+line length section; or using a hanging indent of 4 spaces,
 in which case there should be nothing after the open parenthesis or bracket on
 the first line.
 
@@ -67,6 +67,14 @@ Yes:   # Aligned with opening delimiter
        meal = (
            spam,
            beans)
+       
+       # Or 
+       foo = long_function(
+           var_one, var_two, var_three
+       )
+       meal = (
+           spam,beans
+       )
 
        # 4-space hanging indent in a dictionary
        foo = {
@@ -233,7 +241,7 @@ Certain aspects of a function should be documented in special sections, listed
 below. Each section begins with a heading line, which ends with a colon.
 Sections should be indented two spaces, except for the heading.
 
-*Args:*
+*:param*
 : List each parameter by name. A description should follow the name, and be
 : separated by a colon and a space. If the description is too long to fit on a
 : single 80-character line, use a hanging indent of 2 or 4 spaces (be
@@ -243,14 +251,14 @@ Sections should be indented two spaces, except for the heading.
 : If a function accepts `*foo` (variable length argument lists) and/or `**bar`
 : (arbitrary keyword arguments), they should be listed as `*foo` and `**bar`.
 
-*Returns:* (or *Yields:* for generators)
+*:returns* (or *yields* for generators)
 : Describe the type and semantics of the return value. If the function only
 : returns None, this section is not required. It may also be omitted if the
 : docstring starts with Returns (or Yields) (e.g.
 : `"""Returns row from Bigtable as a tuple of strings."""`) and the opening
 : sentence is sufficient to describe return value.
 
-*Raises:*
+*:raises*
 : List all exceptions that are relevant to the interface.
 
 ```python {.good}
@@ -261,15 +269,12 @@ def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
     represented by big_table.  Silly things may happen if
     other_silly_variable is not None.
 
-    Args:
-        big_table: An open Bigtable Table instance.
-        keys: A sequence of strings representing the key of each table row
-            to fetch.
-        other_silly_variable: Another optional variable, that has a much
-            longer name than the other args, and which does nothing.
+    :param big_table: An open Bigtable Table instance.
+    :param keys: A sequence of strings representing the key of each table row to fetch.
+    :param other_silly_variable: Another optional variable, that has a much
+        longer name than the other args, and which does nothing.
 
-    Returns:
-        A dict mapping keys to the corresponding table row data
+    :return: A dict mapping keys to the corresponding table row data
         fetched. Each row is represented as a tuple of strings. For
         example:
 
@@ -280,8 +285,7 @@ def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
         If a key from the keys argument is missing from the dictionary,
         then that row was not found in the table.
 
-    Raises:
-        IOError: An error occurred accessing the bigtable.Table object.
+    :raises IOError: An error occurred accessing the bigtable.Table object.
     """
 ```
 
@@ -289,7 +293,7 @@ def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
 
 Classes should have a docstring below the class definition describing the class.
 If your class has public attributes, they should be documented here in an
-Attributes section and follow the same formatting as a function's Args section.
+Attributes section and follow the same formatting as a function's params section.
 
 ```python {.good}
 class SampleClass(object):
